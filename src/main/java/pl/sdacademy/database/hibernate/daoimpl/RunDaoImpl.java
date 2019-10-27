@@ -27,7 +27,7 @@ public class RunDaoImpl implements RunDao {
         session.close();
     }
 
-    public void delete(Long id) {
+    public int delete(Long id) {
         SessionFactory factory = HibernateUtils
                 .getInstance()
                 .getSessionFactory();
@@ -35,13 +35,14 @@ public class RunDaoImpl implements RunDao {
         Session session = factory.getCurrentSession();
 
         session.beginTransaction();
-        session
+        int affectedRows = session
                 .createQuery("delete Run where id=:id")
                 .setParameter("id", id)
                 .executeUpdate();
         session.getTransaction().commit();
 
         session.close();
+        return affectedRows;
     }
 
     public Run getById(Long id) {

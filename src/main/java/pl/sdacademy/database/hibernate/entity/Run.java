@@ -19,7 +19,7 @@ public class Run {
     private Integer membersLimit;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "run")
-    private Set<Member> members = new HashSet<Member>();
+    private Set<RunMember> runMembers = new HashSet<RunMember>();
 
     public Run() {
 
@@ -65,11 +65,11 @@ public class Run {
         this.membersLimit = membersLimit;
     }
 
-    public Set<Member> getMembers() {
-        return members;
+    public Set<RunMember> getRunMembers() {
+        return runMembers;
     }
 
-    public void setMembers(Set<Member> members) {
-        this.members = members;
+    public void setRunMembers(Set<RunMember> runMembers) {
+        this.runMembers = runMembers;
     }
 }

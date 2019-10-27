@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RunDao {
     void save(Run run);
-    void delete(Long id);
+    int delete(Long id);
     Run getById(Long id);
     List<Run> getAll();
     List<Run> getAll(int seek, int count);

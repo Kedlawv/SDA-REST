@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Member {
+public class RunMember {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +26,7 @@ public class Member {
                inverseJoinColumns = {@JoinColumn(name = "chip_id")})
     private Set<NfcChip> chips = new HashSet<NfcChip>();
 
-    public Member() {
+    public RunMember() {
     }
 
     public Long getId() {

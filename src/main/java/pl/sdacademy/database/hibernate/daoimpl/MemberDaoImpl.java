@@ -3,7 +3,7 @@ package pl.sdacademy.database.hibernate.daoimpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pl.sdacademy.database.hibernate.dao.MemberDao;
-import pl.sdacademy.database.hibernate.entity.Member;
+import pl.sdacademy.database.hibernate.entity.RunMember;
 import pl.sdacademy.database.hibernate.utils.HibernateUtils;
 
 import javax.persistence.NoResultException;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class MemberDaoImpl implements MemberDao {
 
-    public void save(Member member) {
+    public void save(RunMember runMember) {
         SessionFactory factory = HibernateUtils
                 .getInstance()
                 .getSessionFactory();
@@ -20,7 +20,7 @@ public class MemberDaoImpl implements MemberDao {
         Session session = factory.getCurrentSession();
 
         session.beginTransaction();
-        session.saveOrUpdate(member);
+        session.saveOrUpdate(runMember);
         session.getTransaction().commit();
 
         session.close();
@@ -43,7 +43,7 @@ public class MemberDaoImpl implements MemberDao {
         session.close();
     }
 
-    public Member getById(Long id) {
+    public RunMember getById(Long id) {
         SessionFactory factory = HibernateUtils
                 .getInstance()
                 .getSessionFactory();
@@ -52,11 +52,11 @@ public class MemberDaoImpl implements MemberDao {
 
         session.beginTransaction();
         try {
-            Member member = (Member) session
+            RunMember runMember = (RunMember) session
                     .createQuery("from Member where id=:id")
                     .setParameter("id", id)
                     .getSingleResult();
-            return member;
+            return runMember;
         } catch (NoResultException ex) {
             return null;
         } finally {
@@ -65,7 +65,7 @@ public class MemberDaoImpl implements MemberDao {
         }
     }
 
-    public List<Member> getAll() {
+    public List<RunMember> getAll() {
         SessionFactory factory = HibernateUtils
                 .getInstance()
                 .getSessionFactory();
@@ -73,12 +73,12 @@ public class MemberDaoImpl implements MemberDao {
         Session session = factory.getCurrentSession();
 
         session.beginTransaction();
-        List<Member> members = session
+        List<RunMember> runMembers = session
                 .createQuery("from Member")
                 .list();
         session.getTransaction().commit();
         session.close();
-        return members;
+        return runMembers;
 
 
     }

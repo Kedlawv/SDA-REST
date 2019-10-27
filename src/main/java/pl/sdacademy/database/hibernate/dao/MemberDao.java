@@ -1,12 +1,12 @@
 package pl.sdacademy.database.hibernate.dao;
 
-import pl.sdacademy.database.hibernate.entity.Member;
+import pl.sdacademy.database.hibernate.entity.RunMember;
 
 import java.util.List;
 
 public interface MemberDao {
-    void save(Member member);
+    void save(RunMember runMember);
     void delete(Long id);
-    Member getById(Long id);
-    List<Member> getAll();
+    RunMember getById(Long id);
+    List<RunMember> getAll();
 }

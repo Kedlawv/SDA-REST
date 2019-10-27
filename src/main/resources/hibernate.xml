@@ -6,9 +6,9 @@
     <session-factory>
 
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/public?serverTimezone=Europe/Warsaw </property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/rest_sda?serverTimezone=Europe/Warsaw </property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">1haslo1</property>
+        <property name="hibernate.connection.password">abc123</property>
         <property name="hibernate.connection.pool_size">10</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
@@ -17,7 +17,7 @@
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
         <mapping class="pl.sdacademy.database.hibernate.entity.Run" />
-        <mapping class="pl.sdacademy.database.hibernate.entity.Member" />
+        <mapping class="pl.sdacademy.database.hibernate.entity.RunMember" />
         <mapping class="pl.sdacademy.database.hibernate.entity.NfcChip" />
     </session-factory>
 </hibernate-configuration>
